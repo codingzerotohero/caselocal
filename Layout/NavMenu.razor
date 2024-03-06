@@ -1,0 +1,43 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Arribatec</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <AuthorizeView Policy="hr">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="hr">
+                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> HR
+                    </NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+
+        <AuthorizeView Policy="alleansatte">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="submit-innspill">
+                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Innspill
+                    </NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

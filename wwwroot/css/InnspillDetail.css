@@ -1,0 +1,57 @@
+﻿/* wwwroot/css/InnspillDetail.css */
+
+.innspill-detail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innspill-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.innspill-detail-content {
+    max-width: 70vw;
+    word-wrap: break-word;
+    border: 1px solid #3498db;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    z-index: 1000;
+}
+
+    .innspill-detail-content h3 {
+        color: #3498db; 
+        margin-bottom: 15px;
+    }
+
+    .innspill-detail-content p {
+        margin-bottom: 15px;
+    }
+
+    .innspill-detail-content button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 15px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+        .innspill-detail-content button:hover {
+            background-color: #45a049;
+        }

@@ -1,0 +1,52 @@
+﻿@page "/submit-innspill"
+@attribute [Authorize("alleansatte")]
+
+<div class="innspill-container">
+    <h5>Skriv inn dine forslag eller innspill anonymt her.</h5>
+
+    <div class="input-container">
+        <label for="innspillInput">Innspill:</label>
+        <textarea id="innspillInput" @bind="_innspillText"></textarea>
+    </div>
+
+    <button class="submit-button" @onclick="SubmitInnspill">Send inn</button>
+    <div class="checkmark" style="display: @(_showCheckmark ? "block" : "none")">&#10003;</div>
+
+</div>
+
+@code {
+    private string _innspillText;
+    private bool _showCheckmark;
+
+    private async Task SubmitInnspill()
+    {
+        try
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Add("x-functions-key", "");
+                await client.PostAsJsonAsync("https://casefunc.azurewebsites.net/api/Process", new { InnspillText = _innspillText });
+                _showCheckmark = true;
+                _innspillText = "";
+                StateHasChanged();
+
+                Console.WriteLine("Showing checkmark");
+                
+                await Task.Delay(5000);
+
+                Console.WriteLine("Hiding checkmark");
+
+                _showCheckmark = false;
+                StateHasChanged();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Det her funka dårlig du!");
+        }
+
+    }
+
+    
+}

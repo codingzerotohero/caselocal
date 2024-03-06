@@ -1,0 +1,57 @@
+﻿<!-- InnspillDetail.razor -->
+@inherits ComponentBase
+@inject NavigationManager Navigation
+@using BlazorWebAssemblyApp.Pages
+@using BlazorWebAssemblyApp.Extensions
+@using Newtonsoft.Json;
+
+<div class="innspill-detail-container" style="display: @(!string.IsNullOrEmpty(Document.Innspill) ? "flex" : "none")">
+    <div class="innspill-detail-overlay" @onclick="Lukk"></div>
+    <div class="innspill-detail-content">
+        <h5>Innspill sendt inn: @Document.Tidspunkt</h5>
+        <p>@Document.Innspill</p>
+        <button @onclick="AnerkjennClicked">Anerkjenn</button>    
+        <button @onclick="Lukk">Lukk</button>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Document Document { get; set; }
+
+    [Parameter]
+    public EventCallback OnClose { get; set; }
+
+    protected override void OnParametersSet()
+    {
+
+        Console.WriteLine($"InnspillText in InnspillDetail: {Document.Innspill}");
+
+        base.OnParametersSet();
+    }
+
+    private void Lukk()
+    {
+        OnClose.InvokeAsync();
+    }
+
+
+    private async Task AnerkjennClicked()
+    {
+        Console.WriteLine($"Updating innspill ID: {Document.id}");
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Add("x-functions-key", "");
+
+            Document.Anerkjent = "True";
+
+            Console.WriteLine($"Update request body: {JsonConvert.SerializeObject(Document)}");
+
+            var response = await client.PostAsJsonAsync("https://casefunc.azurewebsites.net/api/Save/", Document);
+
+            Navigation.NavigateTo("hr", forceLoad: true);
+        }
+    }
+}

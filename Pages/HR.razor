@@ -1,0 +1,93 @@
+﻿@page "/hr"
+
+@using BlazorWebAssemblyApp.Pages
+@using BlazorWebAssemblyApp.Extensions
+@using Newtonsoft.Json
+@inject Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider AuthenticationStateProvider
+@attribute [Authorize(Policy = "hr")]
+
+<div class="hr">
+    <h5>Alle innspill, rangert etter tidspunkt.</h5>
+
+    @if (_documents != null && _documents.Any())
+    {
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Innspill</th>
+                    <th>Anerkjent</th>
+                    <th>Tidspunkt</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var document in _documents)
+                {
+                    <tr>
+                        <td class="text-wrap-cell clickable-cell" @onclick="() => ShowInnspillDetail(document)">
+                            @document.Innspill
+                        </td>
+                        @if (document.Anerkjent == "False")
+                        {
+                            <td class="border-cell no-wrap red-border">Nei</td>
+                        }
+                        else
+                        {
+                            <td class="border-cell no-wrap">Ja</td>
+                        }
+                        <td class="border-cell">@document.Tidspunkt</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@if(_selectedDocument != null)
+{
+    <InnspillDetail Document="@_selectedDocument" OnClose="InnspillDetailClosed"/>
+}
+
+@code {
+    private Document _selectedDocument;
+    private List<Document> _documents;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetInnspill();
+    }
+
+    private async Task GetInnspill()
+    {
+        try
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Add("x-functions-key", "");
+
+                var documents = await client.GetFromJsonAsync<List<Document>>("https://casefunc.azurewebsites.net/api/Fetch/"); //Prøve en liten endring her
+
+                Console.WriteLine($"Loaded {documents.Count} documents.");
+                _documents = documents;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Det her funka dårlig du!{ex.Message}");
+        }
+    }
+
+    private void ShowInnspillDetail(Document document)
+    {
+        Console.WriteLine($"Clicked on Innspill cell: {document.Innspill}");
+        _selectedDocument = document;
+    }
+
+    private async void InnspillDetailClosed()
+    {
+        _selectedDocument = null;
+    }
+
+    
+
+}

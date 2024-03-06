@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\obj\\Debug\\net8.0\\compressed\\n3tvahjnc7.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorWebAssemblyApp.styles.css",
+      "PackagePath": "staticwebassets\\BlazorWebAssemblyApp.styles.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\InnspillDetail.css",
+      "PackagePath": "staticwebassets\\css\\InnspillDetail.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\InnspillTable.css",
+      "PackagePath": "staticwebassets\\css\\InnspillTable.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\SubmitInnspill.css",
+      "PackagePath": "staticwebassets\\css\\SubmitInnspill.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "D:\\repos\\BlazorWebAssemblyApp\\BlazorWebAssemblyApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorWebAssemblyApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorWebAssemblyApp.props",
+      "PackagePath": "build\\BlazorWebAssemblyApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorWebAssemblyApp.props",
+      "PackagePath": "buildMultiTargeting\\BlazorWebAssemblyApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorWebAssemblyApp.props",
+      "PackagePath": "buildTransitive\\BlazorWebAssemblyApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

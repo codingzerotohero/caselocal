@@ -1,0 +1,12 @@
+﻿@page "/"
+@inject NavigationManager Navigation
+
+@* <h1>This page is for normal users</h1> *@
+
+@code {
+	protected override void OnInitialized()
+	{
+		Navigation.NavigateTo("/submit-innspill");
+		Console.WriteLine("Sending user to submit innspill!");
+	}
+}
